@@ -12,7 +12,7 @@ def colour(i):
                 64:'White'
              }
     print switcher.get(i,"Invalid"),
-book = xlrd.open_workbook("test.xls", formatting_info=True)
+book = xlrd.open_workbook("test1.xls", formatting_info=True)
 sheets = book.sheet_names()
 #print sheets
 print "sheets are:", sheets
