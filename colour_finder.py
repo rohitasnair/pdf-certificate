@@ -16,7 +16,7 @@ sheets = book.sheet_names()
 print "sheets are:", sheets
 for index, sh in enumerate(sheets):
     sheet = book.sheet_by_index(index)
-    print "Sheet:", sheet.name
+    
     rows, cols = 15, 14
     print "Number of rows: %s   Number of cols: %s" % (rows, cols)
     for row in range(rows):
@@ -31,3 +31,4 @@ for index, sh in enumerate(sheets):
             colour(bgx)
        	    print thecell
 print 'end'
+print "Sheet:", sheet.name 
