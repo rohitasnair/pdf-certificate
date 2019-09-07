@@ -1,6 +1,4 @@
 import xlrd
-from colour import Color
-from colormap import rgb2hex
 def colour(i):
     switcher={
                 8:'Null',
