@@ -1,23 +1,35 @@
-from Tkinter import *
 from pyPdf import PdfFileWriter, PdfFileReader
 import StringIO
+import os
+import PyPDF2
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from fpdf import FPDF
+#import PyPDF2 
 
-#font
+def PDFmerge(pdfs, output): 
+	# creating pdf file merger object 
+	pdfMerger = PyPDF2.PdfFileMerger() 
+	
+	# appending pdfs one by one 
+	for pdf in pdfs: 
+		with open(pdf, 'rb') as f: 
+			pdfMerger.append(f) 
+		
+	# writing combined pdf to output pdf file 
+	with open(output, 'wb') as f: 
+		pdfMerger.write(f) 
+
 pdfmetrics.registerFont(TTFont('Round', 'RoundhandBT.ttf'))
 
 packet = StringIO.StringIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
+can.setFont('Round', 32)
+can.drawString(200, 510, "Name")
+can.drawString(225, 438, "Event")
 
-imgPath = "sign.png"
-can.drawImage(imgPath, 200,200,100, 100,mask='auto')
-
-#can =canvas.Canvas(width=300, height=200, bg='black')
 can.save()
 
 #move to the beginning of the StringIO buffer
@@ -35,4 +47,7 @@ outputStream = file("destination.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
 
-
+pdfs = ['destination.pdf', 'end.pdf'] 
+output = 'final.pdf'
+PDFmerge(pdfs = pdfs, output = output) 
+os.remove("destination.pdf")
