@@ -27,7 +27,9 @@ packet = StringIO.StringIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
 can.setFont('Round', 32)
-can.drawString(200, 510, "Hello world")
+can.drawString(200, 510, "Name")
+can.drawString(225, 438, "Event")
+
 can.save()
 
 #move to the beginning of the StringIO buffer
@@ -45,7 +47,7 @@ outputStream = file("destination.pdf", "wb")
 output.write(outputStream)
 outputStream.close()
 
-pdfs = ['destination.pdf', '2.pdf'] 
+pdfs = ['destination.pdf', 'end.pdf'] 
 output = 'final.pdf'
 PDFmerge(pdfs = pdfs, output = output) 
 os.remove("destination.pdf")
