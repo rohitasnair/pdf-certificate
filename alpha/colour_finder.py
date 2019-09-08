@@ -1,15 +1,38 @@
 import xlrd
+def null():
+    #print "Null",
+    return "Null"
+def green():
+    #print "Greeen",
+    return "Greeen"
+def yellow():
+    #print "Yellow",
+    return "Yellow"
+def brown():
+    #print "Brown",
+    return "Brown"
+def red():
+    #print "Red",
+    return "Red"
+def orange():
+    #print "Orange",
+    return "Orange"
+def white():
+    #print "White",
+    return "White"
 def colour(i):
     switcher={
-                8:'Null',
-                11:'Green',
-                13:'Yellow',
-                14:'Brown',
-                10:'Red',
-                52:'Orange',
-                64:'White'
+                8:null(),
+                11:green(),
+                13:yellow(),
+                16:brown(),
+                10:red(),
+                52:orange(),
+                64:white()
              }
-    print switcher.get(i,"Invalid"),
+    return switcher.get(i,"Invalid")
+
+
 book = xlrd.open_workbook("test1.xls", formatting_info=True)
 sheets = book.sheet_names()
 #print sheets
@@ -28,7 +51,7 @@ for index, sh in enumerate(sheets):
             thecell = sheet.cell(row, col).value
             if thecell=='':
                 continue
-            colour(bgx)
+            print(colour(bgx))
        	    print thecell
 print 'end'
 print "Sheet:", sheet.name 
