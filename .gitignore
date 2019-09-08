@@ -1,4 +1,9 @@
 add_image/*.pdf
 add_image/sign.png
 original/
+*.pdfs
+*.xlsx
+*.xls
+*.~lock*
+*.pdf
 text/*.pdf

@@ -26,9 +26,9 @@ pdfmetrics.registerFont(TTFont('Round', 'RoundhandBT.ttf'))
 packet = StringIO.StringIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
-can.setFont('Round', 32)
-can.drawString(200, 510, "Name")
-can.drawString(225, 438, "Event")
+can.setFont('Round', 25)
+can.drawString(205, 480, "QWERTYUOP")
+can.drawString(140, 427, "Healthy Beverage Making")
 
 can.save()
 
@@ -36,7 +36,7 @@ can.save()
 packet.seek(0)
 new_pdf = PdfFileReader(packet)
 # read your existing PDF
-existing_pdf = PdfFileReader(file("1.pdf", "rb"))
+existing_pdf = PdfFileReader(file("2.pdf", "rb"))
 output = PdfFileWriter()
 # add the "watermark" (which is the new pdf) on the existing page
 page = existing_pdf.getPage(0)
