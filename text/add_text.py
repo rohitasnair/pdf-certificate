@@ -21,14 +21,14 @@ def PDFmerge(pdfs, output):
 	with open(output, 'wb') as f: 
 		pdfMerger.write(f) 
 
-pdfmetrics.registerFont(TTFont('Round', 'RoundhandBT.ttf'))
+pdfmetrics.registerFont(TTFont('Round', 'Coldiac.ttf'))
 
 packet = StringIO.StringIO()
 # create a new PDF with Reportlab
 can = canvas.Canvas(packet, pagesize=letter)
 can.setFont('Round', 25)
-can.drawString(205, 480, "QWERTYUOP")
-can.drawString(140, 427, "Healthy Beverage Making")
+can.drawString(205, 480, "Vivek suchdev")
+can.drawString(140, 427, "Tribute to Tarla Dalal")
 
 can.save()
 
