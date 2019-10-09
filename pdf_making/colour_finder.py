@@ -11,18 +11,18 @@ from reportlab.lib.pagesizes import letter
 def pdf(names,event_name,certitype):
     if certitype==1:
         print certitype
-        frontsheet="1.pdfs"
+        frontsheet="2.pdfs"
         namex=200
-        namey=510
+        namey=650
         eventx=225
         eventy=438
     else:
         print certitype
         frontsheet="2.pdfs"
-        namex=205
+        namex=190
         namey=480
-        eventx=120
-        eventy=427
+        eventx=100
+        eventy=428
 
     def PDFmerge(pdfs, output): 
     # creating pdf file merger object 
@@ -37,7 +37,7 @@ def pdf(names,event_name,certitype):
         with open(output, 'wb') as f: 
             pdfMerger.write(f) 
 
-    pdfmetrics.registerFont(TTFont('Round', 'RoundhandBT.ttf'))
+    pdfmetrics.registerFont(TTFont('Round', 'Coldiac.ttf'))
 
     packet = StringIO.StringIO()
     # create a new PDF with Reportlab
@@ -67,10 +67,9 @@ def pdf(names,event_name,certitype):
     output.write(outputStream)
     outputStream.close() 
     pdfs = ['destination.pdf', 'end.pdfs'] 
-    output = names.upper()+'.pdf'
+    output = names.replace(".", " ").upper()+' '+event_name.upper()+'.pdf'
     PDFmerge(pdfs = pdfs, output = output) 
     os.remove("destination.pdf")
-    #os.chdir(mycwd) 
 def null():
     #print "Null",
     return "Null"
@@ -114,14 +113,14 @@ def colour(i):
     return switcher.get(i,"Invalid")
 
 
-book = xlrd.open_workbook("test.xls", formatting_info=True)
+book = xlrd.open_workbook("22.xls", formatting_info=True)
 sheets = book.sheet_names()
 #print sheets
 print "sheets are:", sheets
 for index, sh in enumerate(sheets):
     sheet = book.sheet_by_index(index)
     
-    rows, cols = 11, 2
+    rows, cols = sheet.nrows,sheet.ncols
     print "Number of rows: %s   Number of cols: %s" % (rows, cols)
     for row in range(rows):
         for col in range(cols):
@@ -135,4 +134,6 @@ for index, sh in enumerate(sheets):
        	    print thecell
 print 'end'
 print "Sheet:", sheet.name 
+
+
 

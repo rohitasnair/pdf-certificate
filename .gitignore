@@ -1,9 +1,16 @@
 add_image/*.pdf
 add_image/sign.png
+winner_day_1/
+participation_day_1/
+participation_2/
+pdf_making/winner_2
+pdf_making/winner_2/temp
 original/
 *.pdfs
 *.xlsx
 *.xls
 *.~lock*
 *.pdf
+*.zip
+*.ttf
 text/*.pdf
