@@ -8,6 +8,8 @@ pdf_making/winner_2/temp
 original/
 *.pdfs
 *.xlsx
+*.temp
+*.lock
 *.xls
 *.~lock*
 *.pdf
